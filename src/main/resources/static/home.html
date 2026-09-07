@@ -1,0 +1,1620 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Student Management System
+    </title>
+
+
+    <link rel="stylesheet"
+          href="css/home.css">
+
+
+</head>
+
+
+<body>
+
+
+<!-- ========================================
+     NAVBAR
+======================================== -->
+
+<nav class="navbar">
+
+    <div class="nav-container">
+
+
+        <!-- LOGO -->
+
+        <div class="logo">
+
+            <div class="logo-icon">
+
+                🎓
+
+            </div>
+
+
+            <div>
+
+                <h2>
+
+                    SMS
+
+                </h2>
+
+
+                <span>
+
+                    Student Management System
+
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- NAVIGATION -->
+
+        <ul class="nav-links">
+
+            <li>
+
+                <a href="#home">
+
+                    Home
+
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a href="#features">
+
+                    Features
+
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a href="#gallery">
+
+                    Gallery
+
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a href="#about">
+
+                    About
+
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a href="#workflow">
+
+                    Workflow
+
+                </a>
+
+            </li>
+
+        </ul>
+
+
+        <!-- BUTTONS -->
+
+        <div class="nav-buttons">
+
+            <button
+                    class="login-btn"
+                    onclick="goToLogin()">
+
+                Login
+
+            </button>
+
+
+            <button
+                    class="register-btn"
+                    onclick="goToRegister()">
+
+                Get Started
+
+            </button>
+
+        </div>
+
+
+    </div>
+
+</nav>
+
+
+
+<!-- ========================================
+     HERO SECTION
+======================================== -->
+
+<section
+        class="hero"
+        id="home">
+
+
+    <div class="hero-container">
+
+
+        <!-- LEFT CONTENT -->
+
+        <div class="hero-content">
+
+
+            <div class="hero-badge">
+
+                🎓 Smart Student Management Platform
+
+            </div>
+
+
+            <h1>
+
+                Manage Students
+
+                <span>
+
+                    Smarter
+
+                </span>
+
+                <br>
+
+                Build Education
+
+                <span>
+
+                    Better
+
+                </span>
+
+            </h1>
+
+
+            <p>
+
+                A secure and modern Student Management System
+                designed to manage student records, authentication,
+                profiles, administrators and system activities
+                efficiently from one powerful platform.
+
+            </p>
+
+
+
+            <!-- HERO BUTTONS -->
+
+            <div class="hero-buttons">
+
+
+                <button
+                        class="primary-btn"
+                        onclick="goToLogin()">
+
+                    Login to System
+
+                    <span>
+
+                        →
+
+                    </span>
+
+                </button>
+
+
+                <button
+                        class="secondary-btn"
+                        onclick="scrollToFeatures()">
+
+                    Explore Features
+
+                </button>
+
+
+            </div>
+
+
+
+            <!-- STATS -->
+
+            <div class="hero-stats">
+
+
+                <div class="stat-box">
+
+                    <h3 class="counter">
+
+                        100+
+
+                    </h3>
+
+                    <p>
+
+                        Students
+
+                    </p>
+
+                </div>
+
+
+                <div class="stat-box">
+
+                    <h3 class="counter">
+
+                        24/7
+
+                    </h3>
+
+                    <p>
+
+                        Secure Access
+
+                    </p>
+
+                </div>
+
+
+                <div class="stat-box">
+
+                    <h3>
+
+                        🔐
+
+                    </h3>
+
+                    <p>
+
+                        JWT Security
+
+                    </p>
+
+                </div>
+
+
+                <div class="stat-box">
+
+                    <h3>
+
+                        📊
+
+                    </h3>
+
+                    <p>
+
+                        Smart Dashboard
+
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- RIGHT HERO IMAGE -->
+
+        <div class="hero-visual">
+
+
+            <div class="image-decoration">
+
+            </div>
+
+
+            <img
+                    class="hero-student-image"
+                    src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1200&q=80"
+                    alt="Students studying together">
+
+
+            <!-- FLOATING CARD -->
+
+            <div class="floating-student-card">
+
+                <div class="student-icon">
+
+                    🎓
+
+                </div>
+
+
+                <div>
+
+                    <small>
+
+                        Student Management
+
+                    </small>
+
+
+                    <h3>
+
+                        Simple & Secure
+
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+            <!-- STATUS CARD -->
+
+            <div class="status-card">
+
+                <span>
+
+                    🟢
+
+                </span>
+
+                System Active
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- ========================================
+     TRUST SECTION
+======================================== -->
+
+<section class="trust-section">
+
+
+    <p>
+
+        A MODERN PLATFORM FOR STUDENT MANAGEMENT
+
+    </p>
+
+
+    <div class="trust-grid">
+
+
+        <div>
+
+            🔐
+
+            <span>
+
+                Secure
+
+            </span>
+
+        </div>
+
+
+        <div>
+
+            👨‍🎓
+
+            <span>
+
+                Students
+
+            </span>
+
+        </div>
+
+
+        <div>
+
+            👨‍💼
+
+            <span>
+
+                Admin
+
+            </span>
+
+        </div>
+
+
+        <div>
+
+            📊
+
+            <span>
+
+                Analytics
+
+            </span>
+
+        </div>
+
+
+        <div>
+
+            📋
+
+            <span>
+
+                Audit Logs
+
+            </span>
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- ========================================
+     FEATURES
+======================================== -->
+
+<section
+        class="features-section"
+        id="features">
+
+
+    <div class="section-heading">
+
+
+        <span>
+
+            SYSTEM FEATURES
+
+        </span>
+
+
+        <h2>
+
+            Everything You Need
+
+            <br>
+
+            In One System
+
+        </h2>
+
+
+        <p>
+
+            Manage students, administrators and system activities
+            from one secure and modern platform.
+
+        </p>
+
+
+    </div>
+
+
+
+    <div class="features-grid">
+
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+
+                🔐
+
+            </div>
+
+
+            <h3>
+
+                Secure Authentication
+
+            </h3>
+
+
+            <p>
+
+                JWT based authentication provides secure login
+                and protected access to the system.
+
+            </p>
+
+
+            <span class="feature-arrow">
+
+                →
+
+            </span>
+
+        </div>
+
+
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+
+                👥
+
+            </div>
+
+
+            <h3>
+
+                Role Based Access
+
+            </h3>
+
+
+            <p>
+
+                Separate access for Administrators and Students
+                based on their assigned roles.
+
+            </p>
+
+
+            <span class="feature-arrow">
+
+                →
+
+            </span>
+
+        </div>
+
+
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+
+                🎓
+
+            </div>
+
+
+            <h3>
+
+                Student Management
+
+            </h3>
+
+
+            <p>
+
+                Add, update, search, filter and manage
+                student records easily.
+
+            </p>
+
+
+            <span class="feature-arrow">
+
+                →
+
+            </span>
+
+        </div>
+
+
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+
+                🗑
+
+            </div>
+
+
+            <h3>
+
+                Recycle Bin
+
+            </h3>
+
+
+            <p>
+
+                Restore deleted student records or permanently
+                remove them when required.
+
+            </p>
+
+
+            <span class="feature-arrow">
+
+                →
+
+            </span>
+
+        </div>
+
+
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+
+                👨‍💼
+
+            </div>
+
+
+            <h3>
+
+                Admin Management
+
+            </h3>
+
+
+            <p>
+
+                Manage administrator accounts and maintain
+                administrative information.
+
+            </p>
+
+
+            <span class="feature-arrow">
+
+                →
+
+            </span>
+
+        </div>
+
+
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+
+                📋
+
+            </div>
+
+
+            <h3>
+
+                Audit Logs
+
+            </h3>
+
+
+            <p>
+
+                Track important system activities such as
+                login, profile updates and password changes.
+
+            </p>
+
+
+            <span class="feature-arrow">
+
+                →
+
+            </span>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- ========================================
+     STUDENT GALLERY
+======================================== -->
+
+<section
+        class="gallery-section"
+        id="gallery">
+
+
+    <div class="section-heading">
+
+
+        <span>
+
+            STUDENT LIFE
+
+        </span>
+
+
+        <h2>
+
+            Learn. Connect. Grow.
+
+        </h2>
+
+
+        <p>
+
+            A modern environment designed for students
+            and educational management.
+
+        </p>
+
+
+    </div>
+
+
+    <div class="gallery-grid">
+
+
+        <div class="gallery-item large">
+
+            <img
+                    src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80"
+                    alt="Students learning">
+
+
+            <div class="gallery-overlay">
+
+                <h3>
+
+                    Smart Learning
+
+                </h3>
+
+
+                <p>
+
+                    Manage education digitally
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="gallery-item">
+
+            <img
+                    src="https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?auto=format&fit=crop&w=900&q=80"
+                    alt="University students">
+
+
+            <div class="gallery-overlay">
+
+                <h3>
+
+                    Student Community
+
+                </h3>
+
+            </div>
+
+        </div>
+
+
+        <div class="gallery-item">
+
+            <img
+                    src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=900&q=80"
+                    alt="Education">
+
+
+            <div class="gallery-overlay">
+
+                <h3>
+
+                    Better Education
+
+                </h3>
+
+            </div>
+
+        </div>
+
+
+        <div class="gallery-item wide">
+
+            <img
+                    src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1200&q=80"
+                    alt="Campus">
+
+
+            <div class="gallery-overlay">
+
+                <h3>
+
+                    Connected Campus
+
+                </h3>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- ========================================
+     DASHBOARD PREVIEW
+======================================== -->
+
+<section class="dashboard-section">
+
+
+    <div class="dashboard-container">
+
+
+        <div class="dashboard-info">
+
+
+            <span>
+
+                SMART DASHBOARD
+
+            </span>
+
+
+            <h2>
+
+                Everything In One Dashboard
+
+            </h2>
+
+
+            <p>
+
+                Monitor students, manage records, administrators,
+                profiles and important activities from one place.
+
+            </p>
+
+
+            <div class="dashboard-points">
+
+
+                <div>
+
+                    <span>
+
+                        ✓
+
+                    </span>
+
+                    Student Management
+
+                </div>
+
+
+                <div>
+
+                    <span>
+
+                        ✓
+
+                    </span>
+
+                    Role Based Dashboard
+
+                </div>
+
+
+                <div>
+
+                    <span>
+
+                        ✓
+
+                    </span>
+
+                    Secure Authentication
+
+                </div>
+
+
+                <div>
+
+                    <span>
+
+                        ✓
+
+                    </span>
+
+                    Activity Monitoring
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- DASHBOARD MOCKUP -->
+
+        <div class="dashboard-preview">
+
+
+            <div class="preview-top">
+
+
+                <div class="preview-brand">
+
+                    🎓 SMS
+
+                </div>
+
+
+                <div class="preview-user">
+
+                    👤 Admin
+
+                </div>
+
+
+            </div>
+
+
+            <div class="preview-content">
+
+
+                <aside class="preview-sidebar">
+
+                    <div class="active">
+
+                        🏠
+
+                    </div>
+
+
+                    <div>
+
+                        🎓
+
+                    </div>
+
+
+                    <div>
+
+                        👨‍💼
+
+                    </div>
+
+
+                    <div>
+
+                        📊
+
+                    </div>
+
+
+                    <div>
+
+                        ⚙
+
+                    </div>
+
+                </aside>
+
+
+                <main class="preview-main">
+
+
+                    <h3>
+
+                        Dashboard Overview
+
+                    </h3>
+
+
+                    <div class="preview-cards">
+
+
+                        <div class="dashboard-card">
+
+                            <span>
+
+                                👨‍🎓
+
+                            </span>
+
+
+                            <div>
+
+                                <small>
+
+                                    Total Students
+
+                                </small>
+
+
+                                <h2>
+
+                                    120+
+
+                                </h2>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="dashboard-card">
+
+                            <span>
+
+                                🟢
+
+                            </span>
+
+
+                            <div>
+
+                                <small>
+
+                                    Active Students
+
+                                </small>
+
+
+                                <h2>
+
+                                    110+
+
+                                </h2>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="chart-box">
+
+
+                        <h4>
+
+                            Student Statistics
+
+                        </h4>
+
+
+                        <div class="chart-bars">
+
+                            <div style="height: 45%"></div>
+
+                            <div style="height: 70%"></div>
+
+                            <div style="height: 55%"></div>
+
+                            <div style="height: 90%"></div>
+
+                            <div style="height: 65%"></div>
+
+                            <div style="height: 80%"></div>
+
+                        </div>
+
+
+                    </div>
+
+
+                </main>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- ========================================
+     ABOUT
+======================================== -->
+
+<section
+        class="about-section"
+        id="about">
+
+
+    <div class="about-container">
+
+
+        <div class="about-image-box">
+
+
+            <img
+                    src="images/image.png">
+
+
+            <div class="about-image-card">
+
+                🎓
+
+                <div>
+
+                    <strong>
+
+                        Student Success
+
+                    </strong>
+
+
+                    <small>
+
+                        Smart Management
+
+                    </small>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+
+        <div class="about-content">
+
+
+            <span>
+
+                ABOUT THE SYSTEM
+
+            </span>
+
+
+            <h2>
+
+                Simple, Secure &
+
+                <br>
+
+                Easy To Manage
+
+            </h2>
+
+
+            <p>
+
+                The Student Management System provides a
+                centralized platform for managing student
+                information and administrative activities.
+
+            </p>
+
+
+            <p>
+
+                Administrators can manage students, restore
+                deleted records, manage admin accounts and
+                monitor important system activities.
+
+            </p>
+
+
+            <div class="about-list">
+
+
+                <div>
+
+                    <span>
+
+                        ✓
+
+                    </span>
+
+                    Secure Authentication
+
+                </div>
+
+
+                <div>
+
+                    <span>
+
+                        ✓
+
+                    </span>
+
+                    Role Based Access
+
+                </div>
+
+
+                <div>
+
+                    <span>
+
+                        ✓
+
+                    </span>
+
+                    Student Profile Management
+
+                </div>
+
+
+                <div>
+
+                    <span>
+
+                        ✓
+
+                    </span>
+
+                    Activity Tracking
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- ========================================
+     WORKFLOW
+======================================== -->
+
+<section
+        class="workflow-section"
+        id="workflow">
+
+
+    <div class="section-heading">
+
+
+        <span>
+
+            HOW IT WORKS
+
+        </span>
+
+
+        <h2>
+
+            Simple System Workflow
+
+        </h2>
+
+
+    </div>
+
+
+
+    <div class="workflow-container">
+
+
+        <div class="workflow-step">
+
+
+            <div class="step-number">
+
+                1
+
+            </div>
+
+
+            <div class="workflow-icon">
+
+                🔐
+
+            </div>
+
+
+            <h3>
+
+                Login
+
+            </h3>
+
+
+            <p>
+
+                Securely login using your account.
+
+            </p>
+
+
+        </div>
+
+
+
+        <div class="workflow-step">
+
+
+            <div class="step-number">
+
+                2
+
+            </div>
+
+
+            <div class="workflow-icon">
+
+                📊
+
+            </div>
+
+
+            <h3>
+
+                Access Dashboard
+
+            </h3>
+
+
+            <p>
+
+                Access the dashboard according to your role.
+
+            </p>
+
+
+        </div>
+
+
+
+        <div class="workflow-step">
+
+
+            <div class="step-number">
+
+                3
+
+            </div>
+
+
+            <div class="workflow-icon">
+
+                🎓
+
+            </div>
+
+
+            <h3>
+
+                Manage Records
+
+            </h3>
+
+
+            <p>
+
+                Manage students and profile information.
+
+            </p>
+
+
+        </div>
+
+
+
+        <div class="workflow-step">
+
+
+            <div class="step-number">
+
+                4
+
+            </div>
+
+
+            <div class="workflow-icon">
+
+                📋
+
+            </div>
+
+
+            <h3>
+
+                Track Activities
+
+            </h3>
+
+
+            <p>
+
+                Monitor important actions using audit logs.
+
+            </p>
+
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- ========================================
+     CTA
+======================================== -->
+
+<section class="cta-section">
+
+
+    <div class="cta-content">
+
+
+        <span>
+
+            START TODAY
+
+        </span>
+
+
+        <h2>
+
+            Ready To Manage Your Students?
+
+        </h2>
+
+
+        <p>
+
+            Login to access your secure Student Management System.
+
+        </p>
+
+
+        <button
+                onclick="goToLogin()">
+
+            Get Started →
+
+        </button>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- ========================================
+     FOOTER
+======================================== -->
+
+<footer>
+
+
+    <div class="footer-container">
+
+
+        <div class="footer-brand">
+
+
+            <h2>
+
+                🎓 SMS
+
+            </h2>
+
+
+            <p>
+
+                Student Management System
+
+            </p>
+
+
+        </div>
+
+
+        <div class="footer-links">
+
+
+            <a href="#home">
+
+                Home
+
+            </a>
+
+
+            <a href="#features">
+
+                Features
+
+            </a>
+
+
+            <a href="#about">
+
+                About
+
+            </a>
+
+
+            <a href="#workflow">
+
+                Workflow
+
+            </a>
+
+
+        </div>
+
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        © 2026 Student Management System
+
+    </div>
+
+
+</footer>
+
+
+
+<script src="js/home.js"></script>
+
+
+</body>
+
+</html>

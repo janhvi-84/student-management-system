@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Students</title>
+
+    <link rel="stylesheet"
+          href="css/students.css">
+
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            <h2>SMS</h2>
+
+            <p>Admin Panel</p>
+
+        </div>
+
+
+        <ul>
+
+            <li>
+
+                <a href="dashboard.html">
+
+                    🏠 Dashboard
+
+                </a>
+
+            </li>
+
+
+            <li class="active">
+
+                🎓 Students
+
+            </li>
+
+
+            <li>
+
+                <a href="register.html">
+
+                    ➕ Add Student
+
+                </a>
+
+            </li>
+
+
+            <li onclick="logout()">
+
+                🚪 Logout
+
+            </li>
+
+        </ul>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+
+    <main class="main-content">
+
+        <header>
+
+            <h1>
+                🎓 Student Management
+            </h1>
+
+            <p>
+                Manage Student Records
+            </p>
+
+        </header>
+
+
+        <!-- TOOLBAR -->
+
+        <section class="toolbar">
+
+            <input
+                type="text"
+                id="search"
+                placeholder="Search Student by Name...">
+
+
+            <button
+                id="searchBtn">
+
+                🔍 Search
+
+            </button>
+
+
+            <select
+                id="statusFilter">
+
+                <option value="">
+                    All Status
+                </option>
+
+                <option value="ACTIVE">
+                    Active
+                </option>
+
+                <option value="INACTIVE">
+                    Inactive
+                </option>
+
+            </select>
+
+
+            <select
+                id="sortOption">
+
+                <option value="">
+                    Sort By
+                </option>
+
+                <option value="asc">
+                    Name A-Z
+                </option>
+
+                <option value="desc">
+                    Name Z-A
+                </option>
+
+                <option value="created">
+                    Recently Added
+                </option>
+
+            </select>
+
+
+            <button
+                id="addStudent">
+
+                ➕ Add Student
+
+            </button>
+
+        </section>
+
+
+        <!-- TABLE -->
+
+        <section class="table-container">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>ID</th>
+
+                        <th>Name</th>
+
+                        <th>Age</th>
+
+                        <th>Course</th>
+
+                        <th>Email</th>
+
+                        <th>Department</th>
+
+                        <th>City</th>
+
+                        <th>Action</th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody
+                    id="studentTable">
+
+                </tbody>
+
+            </table>
+
+
+            <!-- PAGINATION -->
+
+            <div class="pagination">
+
+                <button
+                    id="prevPage">
+
+                    ◀ Previous
+
+                </button>
+
+
+                <span
+                    id="pageNumber">
+
+                    Page 1
+
+                </span>
+
+
+                <button
+                    id="nextPage">
+
+                    Next ▶
+
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<script
+    src="js/students.js">
+</script>
+
+</body>
+
+</html>

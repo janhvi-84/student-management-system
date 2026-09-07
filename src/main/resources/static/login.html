@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Login | Student Management System</title>
+
+    <link rel="stylesheet"
+          href="css/login.css">
+
+</head>
+
+
+<body>
+
+
+<!-- ========================================
+     NAVBAR
+======================================== -->
+
+<nav class="navbar">
+
+    <div class="nav-container">
+
+
+        <!-- LOGO -->
+
+        <a href="home.html"
+           class="nav-logo">
+
+            <div class="nav-logo-icon">
+
+                🎓
+
+            </div>
+
+
+            <div class="nav-logo-text">
+
+                <h2>
+
+                    SMS
+
+                </h2>
+
+
+                <span>
+
+                    Student Management System
+
+                </span>
+
+            </div>
+
+        </a>
+
+
+        <!-- NAVIGATION -->
+
+        <div class="nav-links">
+
+
+            <a href="home.html">
+
+                Home
+
+            </a>
+
+
+            <a href="home.html#features">
+
+                Features
+
+            </a>
+
+
+            <a href="home.html#about">
+
+                About
+
+            </a>
+
+
+            <a href="home.html#workflow">
+
+                Workflow
+
+            </a>
+
+
+        </div>
+
+
+        <!-- NAV ACTION -->
+
+        <div class="nav-actions">
+
+
+            <a href="register.html"
+               class="nav-register-btn">
+
+                Create Account
+
+            </a>
+
+
+        </div>
+
+
+    </div>
+
+</nav>
+
+
+
+<!-- ========================================
+     PAGE BACKGROUND
+======================================== -->
+
+<div class="login-page">
+
+
+    <!-- ========================================
+         LEFT SIDE
+    ======================================== -->
+
+    <div class="login-info">
+
+
+        <div class="login-info-content">
+
+
+            <div class="portal-badge">
+
+                🔐 SECURE LOGIN PORTAL
+
+            </div>
+
+
+            <h1>
+
+                Welcome Back To
+
+                <span>
+
+                    Student Management
+
+                </span>
+
+                System
+
+            </h1>
+
+
+            <p>
+
+                Access your secure dashboard and manage student
+                information, profiles, records and system activities
+                efficiently.
+
+            </p>
+
+
+            <div class="login-features">
+
+
+                <div class="login-feature">
+
+                    <div class="feature-check">
+
+                        ✓
+
+                    </div>
+
+
+                    <div>
+
+                        <h3>
+
+                            Secure Authentication
+
+                        </h3>
+
+
+                        <p>
+
+                            Protected access using JWT security.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="login-feature">
+
+                    <div class="feature-check">
+
+                        ✓
+
+                    </div>
+
+
+                    <div>
+
+                        <h3>
+
+                            Role Based Access
+
+                        </h3>
+
+
+                        <p>
+
+                            Separate dashboards for Admin and Student.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="login-feature">
+
+                    <div class="feature-check">
+
+                        ✓
+
+                    </div>
+
+
+                    <div>
+
+                        <h3>
+
+                            Smart Management
+
+                        </h3>
+
+
+                        <p>
+
+                            Manage your information from one platform.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- ========================================
+         RIGHT LOGIN SECTION
+    ======================================== -->
+
+    <div class="login-form-section">
+
+
+        <form id="loginForm"
+              class="login-card">
+
+
+            <!-- LOGO -->
+
+            <div class="form-logo">
+
+                🎓
+
+            </div>
+
+
+            <div class="form-heading">
+
+
+                <h2>
+
+                    Welcome Back
+
+                </h2>
+
+
+                <p>
+
+                    Login to continue to your dashboard
+
+                </p>
+
+
+            </div>
+
+
+
+            <!-- LOGIN AS -->
+
+            <div class="input-group">
+
+
+                <label for="userType">
+
+                    Login As
+
+                </label>
+
+
+                <select
+                        id="userType"
+                        required>
+
+
+                    <option value="">
+
+                        Select Admin or Student
+
+                    </option>
+
+
+                    <option value="ADMIN">
+
+                        Admin
+
+                    </option>
+
+
+                    <option value="STUDENT">
+
+                        Student
+
+                    </option>
+
+
+                </select>
+
+
+            </div>
+
+
+
+            <!-- EMAIL -->
+
+            <div class="input-group">
+
+
+                <label for="email">
+
+                    Email Address
+
+                </label>
+
+
+                <input
+                        type="email"
+                        id="email"
+                        placeholder="Enter your email"
+                        required>
+
+
+            </div>
+
+
+
+            <!-- PASSWORD -->
+
+            <div class="input-group">
+
+
+                <label for="password">
+
+                    Password
+
+                </label>
+
+
+                <input
+                        type="password"
+                        id="password"
+                        placeholder="Enter your password"
+                        required>
+
+
+            </div>
+
+
+
+            <!-- FORGOT PASSWORD -->
+
+            <div class="forgot-password">
+
+
+                <a href="forgot-password.html">
+
+                    Forgot Password?
+
+                </a>
+
+
+            </div>
+
+
+
+            <!-- LOGIN BUTTON -->
+
+            <button
+                    type="submit"
+                    class="login-submit-btn">
+
+                Login to System
+
+                <span>
+
+                    →
+
+                </span>
+
+            </button>
+
+
+
+            <!-- REGISTER -->
+
+            <div class="register-text">
+
+
+                <p>
+
+                    Don't have an account?
+
+                    <a href="register.html">
+
+                        Register Now
+
+                    </a>
+
+                </p>
+
+
+            </div>
+
+
+            <!-- SECURITY TEXT -->
+
+            <div class="secure-login-text">
+
+                🔒 Your login information is securely protected
+
+            </div>
+
+
+        </form>
+
+
+    </div>
+
+
+</div>
+
+
+
+<!-- ========================================
+     FOOTER
+======================================== -->
+
+<footer class="login-footer">
+
+
+    <p>
+
+        © 2026 Student Management System
+
+        <span>
+
+            •
+
+        </span>
+
+        Secure Student Management Platform
+
+    </p>
+
+
+</footer>
+
+
+
+<script src="js/login.js"></script>
+
+
+</body>
+
+</html>

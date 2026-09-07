@@ -1,0 +1,1750 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Student Dashboard</title>
+
+    <link rel="stylesheet"
+          href="css/student-dashboard.css">
+
+</head>
+
+
+<body>
+
+
+<div class="dashboard-container">
+
+
+    <!-- =========================================
+         SIDEBAR
+    ========================================== -->
+
+    <aside class="sidebar">
+
+
+        <div class="logo">
+
+            <div class="logo-icon">
+                🎓
+            </div>
+
+
+            <h2>
+                Student Panel
+            </h2>
+
+
+            <p class="logo-text">
+                Student Management System
+            </p>
+
+        </div>
+
+
+
+        <!-- NAVIGATION -->
+
+        <nav>
+
+
+            <a href="#"
+               class="active"
+               onclick="goDashboard(); return false;">
+
+                <span>🏠</span>
+
+                Dashboard
+
+            </a>
+
+
+            <a href="#"
+               onclick="showProfile(); return false;">
+
+                <span>👤</span>
+
+                My Profile
+
+            </a>
+
+
+            <a href="#"
+               onclick="openEditModal(); return false;">
+
+                <span>✏️</span>
+
+                Edit Profile
+
+            </a>
+
+
+            <a href="#"
+               onclick="showChangePassword(); return false;">
+
+                <span>🔑</span>
+
+                Change Password
+
+            </a>
+
+
+            <a href="#"
+               onclick="uploadPhoto(); return false;">
+
+                <span>📷</span>
+
+                Upload Photo
+
+            </a>
+
+
+        </nav>
+
+
+
+        <!-- SIDEBAR FOOTER -->
+
+        <div class="sidebar-bottom">
+
+            <button type="button"
+                    class="logout-btn"
+                    onclick="logout()">
+
+                🚪 Logout
+
+            </button>
+
+        </div>
+
+
+    </aside>
+
+
+
+    <!-- =========================================
+         MAIN CONTENT
+    ========================================== -->
+
+    <main class="main-content">
+
+
+        <!-- TOP HEADER -->
+
+        <header class="topbar">
+
+
+            <div class="topbar-left">
+
+                <p class="page-label">
+                    STUDENT PORTAL
+                </p>
+
+
+                <h1>
+                    Welcome Back 👋
+                </h1>
+
+            </div>
+
+
+
+            <div class="topbar-right">
+
+
+                <!-- HOME BUTTON -->
+
+                <button type="button"
+                        class="home-top-btn"
+                        onclick="goHomePage()">
+
+                    🏠
+
+                    <span>
+                        Home
+                    </span>
+
+                </button>
+
+
+
+                <!-- USER -->
+
+                <div class="student-user">
+
+
+                    <div class="user-avatar">
+
+                        <img id="topProfilePhoto"
+                             src="images/default-user.png"
+                             alt="Student">
+
+                    </div>
+
+
+                    <div>
+
+                        <strong id="studentName">
+                            Student
+                        </strong>
+
+
+                        <small>
+                            Logged In
+                        </small>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </header>
+
+
+
+        <!-- =========================================
+             WELCOME BANNER
+        ========================================== -->
+
+        <section class="welcome-card">
+
+
+            <div class="welcome-content">
+
+
+                <p class="welcome-label">
+                    STUDENT DASHBOARD
+                </p>
+
+
+                <h2>
+
+                    Hello,
+
+                    <span id="welcomeName">
+                        Student
+                    </span>
+
+                    👋
+
+                </h2>
+
+
+                <p>
+
+                    Welcome to your student dashboard.
+                    Manage your personal information,
+                    update your profile and access your
+                    account from one place.
+
+                </p>
+
+
+                <div class="welcome-actions">
+
+
+                    <button type="button"
+                            onclick="showProfile()">
+
+                        View Profile
+
+                        <span>
+                            →
+                        </span>
+
+                    </button>
+
+
+                    <button type="button"
+                            class="welcome-secondary"
+                            onclick="openEditModal()">
+
+                        ✏️ Edit Profile
+
+                    </button>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="welcome-illustration">
+
+
+                <div class="welcome-circle circle-one">
+                </div>
+
+
+                <div class="welcome-circle circle-two">
+                </div>
+
+
+                <div class="graduation-icon">
+                    🎓
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =========================================
+             DASHBOARD STATS
+        ========================================== -->
+
+        <section class="stats-grid">
+
+
+            <!-- ACCOUNT STATUS -->
+
+            <div class="stat-card">
+
+
+                <div class="stat-top">
+
+
+                    <div class="stat-icon blue">
+                        👤
+                    </div>
+
+
+                    <span class="stat-status active-status">
+                        Active
+                    </span>
+
+
+                </div>
+
+
+                <p>
+                    Account Status
+                </p>
+
+
+                <h3>
+                    Active Student
+                </h3>
+
+
+                <small>
+                    Your account is secure and active
+                </small>
+
+
+            </div>
+
+
+
+            <!-- PROFILE -->
+
+            <div class="stat-card clickable-card"
+                 onclick="showProfile()">
+
+
+                <div class="stat-top">
+
+
+                    <div class="stat-icon purple">
+                        📋
+                    </div>
+
+
+                    <span class="card-link">
+                        →
+                    </span>
+
+
+                </div>
+
+
+                <p>
+                    Student Profile
+                </p>
+
+
+                <h3 id="cardStudentName">
+                    Loading...
+                </h3>
+
+
+                <small>
+                    Click to view complete profile
+                </small>
+
+
+            </div>
+
+
+
+            <!-- SECURITY -->
+
+            <div class="stat-card clickable-card"
+                 onclick="showChangePassword()">
+
+
+                <div class="stat-top">
+
+
+                    <div class="stat-icon orange">
+                        🔐
+                    </div>
+
+
+                    <span class="card-link">
+                        →
+                    </span>
+
+
+                </div>
+
+
+                <p>
+                    Account Security
+                </p>
+
+
+                <h3>
+                    Protected
+                </h3>
+
+
+                <small>
+                    Manage your account password
+                </small>
+
+
+            </div>
+
+
+
+            <!-- HOME -->
+
+            <div class="stat-card clickable-card"
+                 onclick="goHomePage()">
+
+
+                <div class="stat-top">
+
+
+                    <div class="stat-icon green">
+                        🏠
+                    </div>
+
+
+                    <span class="card-link">
+                        →
+                    </span>
+
+
+                </div>
+
+
+                <p>
+                    Student System
+                </p>
+
+
+                <h3>
+                    Home Page
+                </h3>
+
+
+                <small>
+                    Go back to system home
+                </small>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =========================================
+             MAIN DASHBOARD GRID
+        ========================================== -->
+
+        <section class="dashboard-main-grid">
+
+
+            <!-- STUDENT ACTIVITY -->
+
+            <div class="dashboard-panel activity-panel">
+
+
+                <div class="panel-header">
+
+
+                    <div>
+
+                        <p class="panel-label">
+                            OVERVIEW
+                        </p>
+
+
+                        <h2>
+                            Student Activity
+                        </h2>
+
+                    </div>
+
+
+                    <!-- GRAPH CHANGE -->
+
+                    <select id="activityPeriod"
+                            onchange="updateActivityChart()">
+
+                        <option value="week">
+                            This Week
+                        </option>
+
+
+                        <option value="month">
+                            This Month
+                        </option>
+
+                    </select>
+
+
+                </div>
+
+
+
+                <div class="chart-wrapper">
+
+
+                    <div class="chart-y-axis">
+
+                        <span>100%</span>
+
+                        <span>75%</span>
+
+                        <span>50%</span>
+
+                        <span>25%</span>
+
+                        <span>0%</span>
+
+                    </div>
+
+
+
+                    <div class="chart-area">
+
+
+                        <div class="chart-grid-lines">
+
+                            <span></span>
+
+                            <span></span>
+
+                            <span></span>
+
+                            <span></span>
+
+                        </div>
+
+
+
+                        <!-- DYNAMIC GRAPH -->
+
+                        <div class="chart-bars"
+                             id="chartBars">
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+                <div class="chart-summary">
+
+
+                    <div>
+
+                        <span class="summary-dot blue-dot">
+                        </span>
+
+                        Profile Activity
+
+                    </div>
+
+
+                    <div>
+
+                        <strong id="engagementPercent">
+                            78%
+                        </strong>
+
+                        Account Engagement
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- PROFILE COMPLETION -->
+
+            <div class="dashboard-panel profile-progress-panel">
+
+
+                <div class="panel-header simple-header">
+
+
+                    <div>
+
+                        <p class="panel-label">
+                            STUDENT PROFILE
+                        </p>
+
+
+                        <h2>
+                            Profile Completion
+                        </h2>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <div class="progress-circle-container">
+
+
+                    <div class="progress-circle">
+
+
+                        <div class="progress-circle-inner">
+
+                            <strong id="profileCompletionPercent">
+                                85%
+                            </strong>
+
+
+                            <span>
+                                Complete
+                            </span>
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+                <div class="profile-progress-list">
+
+
+                    <div>
+
+                        <span class="progress-check">
+                            ✓
+                        </span>
+
+                        Personal Information
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="progress-check">
+                            ✓
+                        </span>
+
+                        Contact Details
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="progress-check">
+                            ✓
+                        </span>
+
+                        Academic Information
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="progress-pending"
+                              id="photoProgressIcon">
+                            !
+                        </span>
+
+                        Profile Photo
+
+                    </div>
+
+
+                </div>
+
+
+
+                <button type="button"
+                        class="complete-profile-btn"
+                        onclick="openEditModal()">
+
+                    Complete Profile
+
+                    →
+
+                </button>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =========================================
+             BOTTOM DASHBOARD GRID
+        ========================================== -->
+
+        <section class="bottom-dashboard-grid">
+
+
+            <!-- QUICK ACCESS -->
+
+            <div class="dashboard-panel quick-access-panel">
+
+
+                <div class="panel-header simple-header">
+
+
+                    <div>
+
+                        <p class="panel-label">
+                            SHORTCUTS
+                        </p>
+
+
+                        <h2>
+                            Quick Access
+                        </h2>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <div class="quick-actions-grid">
+
+
+                    <button type="button"
+                            onclick="showProfile()">
+
+                        <span class="quick-icon blue-bg">
+                            👤
+                        </span>
+
+
+                        <div>
+
+                            <strong>
+                                My Profile
+                            </strong>
+
+
+                            <small>
+                                View details
+                            </small>
+
+                        </div>
+
+                    </button>
+
+
+
+                    <button type="button"
+                            onclick="openEditModal()">
+
+                        <span class="quick-icon purple-bg">
+                            ✏️
+                        </span>
+
+
+                        <div>
+
+                            <strong>
+                                Edit Profile
+                            </strong>
+
+
+                            <small>
+                                Update information
+                            </small>
+
+                        </div>
+
+                    </button>
+
+
+
+                    <button type="button"
+                            onclick="showChangePassword()">
+
+                        <span class="quick-icon orange-bg">
+                            🔑
+                        </span>
+
+
+                        <div>
+
+                            <strong>
+                                Security
+                            </strong>
+
+
+                            <small>
+                                Change password
+                            </small>
+
+                        </div>
+
+                    </button>
+
+
+
+                    <button type="button"
+                            onclick="uploadPhoto()">
+
+                        <span class="quick-icon green-bg">
+                            📷
+                        </span>
+
+
+                        <div>
+
+                            <strong>
+                                Upload Photo
+                            </strong>
+
+
+                            <small>
+                                Update profile image
+                            </small>
+
+                        </div>
+
+                    </button>
+
+
+                    <!-- HOME QUICK ACTION -->
+
+                    <button type="button"
+                            onclick="goHomePage()">
+
+                        <span class="quick-icon home-bg">
+                            🏠
+                        </span>
+
+
+                        <div>
+
+                            <strong>
+                                Home Page
+                            </strong>
+
+
+                            <small>
+                                Go to home
+                            </small>
+
+                        </div>
+
+                    </button>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- ACCOUNT OVERVIEW -->
+
+            <div class="dashboard-panel account-panel">
+
+
+                <div class="panel-header simple-header">
+
+
+                    <div>
+
+                        <p class="panel-label">
+                            ACCOUNT
+                        </p>
+
+
+                        <h2>
+                            Account Overview
+                        </h2>
+
+                    </div>
+
+
+                    <button type="button"
+                            class="view-profile-small"
+                            onclick="showProfile()">
+
+                        View All
+
+                    </button>
+
+
+                </div>
+
+
+
+                <div class="account-overview">
+
+
+                    <div class="account-row">
+
+
+                        <span>
+                            👤
+                        </span>
+
+
+                        <div>
+
+                            <small>
+                                Student Account
+                            </small>
+
+
+                            <strong>
+                                Active
+                            </strong>
+
+                        </div>
+
+
+                        <b class="success-text">
+                            ●
+                        </b>
+
+
+                    </div>
+
+
+
+                    <div class="account-row">
+
+
+                        <span>
+                            🔐
+                        </span>
+
+
+                        <div>
+
+                            <small>
+                                Security Status
+                            </small>
+
+
+                            <strong>
+                                Protected
+                            </strong>
+
+                        </div>
+
+
+                        <b class="success-text">
+                            ●
+                        </b>
+
+
+                    </div>
+
+
+
+                    <div class="account-row">
+
+
+                        <span>
+                            🎓
+                        </span>
+
+
+                        <div>
+
+                            <small>
+                                Student Access
+                            </small>
+
+
+                            <strong>
+                                Available
+                            </strong>
+
+                        </div>
+
+
+                        <b class="success-text">
+                            ●
+                        </b>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =========================================
+             QUICK PROFILE CARD
+        ========================================== -->
+
+        <section class="dashboard-cards">
+
+
+            <div class="student-card"
+                 onclick="showProfile()">
+
+
+                <div class="student-photo">
+
+                    <img id="cardProfilePhoto"
+                         src="images/default-user.png"
+                         alt="Student">
+
+                </div>
+
+
+
+                <div class="card-content">
+
+                    <h3>
+                        Your Student Profile
+                    </h3>
+
+
+                    <small>
+                        Click here to view complete information
+                    </small>
+
+                </div>
+
+
+
+                <div class="card-arrow">
+                    →
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =========================================
+             CHANGE PASSWORD
+        ========================================== -->
+
+        <section class="profile-section"
+                 id="changePasswordSection"
+                 style="display:none;">
+
+
+            <div class="section-heading">
+
+
+                <div>
+
+                    <p class="page-label">
+                        SECURITY
+                    </p>
+
+
+                    <h2>
+                        Change Password
+                    </h2>
+
+                </div>
+
+
+                <button type="button"
+                        class="back-btn"
+                        onclick="hideChangePassword()">
+
+                    ← Back
+
+                </button>
+
+
+            </div>
+
+
+
+            <div class="profile-card">
+
+
+                <div class="profile-header">
+
+
+                    <div class="profile-avatar">
+                        🔒
+                    </div>
+
+
+                    <div>
+
+                        <h2>
+                            Update Password
+                        </h2>
+
+
+                        <p>
+                            Keep your account secure by changing your password.
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <div class="profile-details">
+
+
+                    <div class="detail-box full-width">
+
+                        <div style="width:100%;">
+
+                            <small>
+                                Current Password
+                            </small>
+
+
+                            <div class="password-box">
+
+                                <input type="password"
+                                       id="currentPassword"
+                                       placeholder="Enter Current Password">
+
+
+                                <span class="toggle-password"
+                                      onclick="togglePassword('currentPassword',this)">
+
+                                    👁
+
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="detail-box full-width">
+
+                        <div style="width:100%;">
+
+                            <small>
+                                New Password
+                            </small>
+
+
+                            <div class="password-box">
+
+                                <input type="password"
+                                       id="newPasswordChange"
+                                       placeholder="Enter New Password">
+
+
+                                <span class="toggle-password"
+                                      onclick="togglePassword('newPasswordChange',this)">
+
+                                    👁
+
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div id="passwordStrength"
+                         class="password-strength">
+                    </div>
+
+
+
+                    <div class="password-rules">
+
+                        <p id="ruleLength">
+                            ❌ Minimum 8 Characters
+                        </p>
+
+                        <p id="ruleUpper">
+                            ❌ One Uppercase Letter
+                        </p>
+
+                        <p id="ruleLower">
+                            ❌ One Lowercase Letter
+                        </p>
+
+                        <p id="ruleNumber">
+                            ❌ One Number
+                        </p>
+
+                        <p id="ruleSpecial">
+                            ❌ One Special Character
+                        </p>
+
+                    </div>
+
+
+
+                    <div class="detail-box full-width">
+
+                        <div style="width:100%;">
+
+                            <small>
+                                Confirm Password
+                            </small>
+
+
+                            <div class="password-box">
+
+                                <input type="password"
+                                       id="confirmPasswordChange"
+                                       placeholder="Confirm Password">
+
+
+                                <span class="toggle-password"
+                                      onclick="togglePassword('confirmPasswordChange',this)">
+
+                                    👁
+
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div id="passwordMatch"
+                         class="password-match">
+                    </div>
+
+
+                </div>
+
+
+                <br>
+
+
+                <button type="button"
+                        class="save-btn"
+                        onclick="changePassword()">
+
+                    🔒 Change Password
+
+                </button>
+
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+</div>
+
+
+
+<!-- =====================================================
+     PROFESSIONAL PROFILE OVERLAY
+===================================================== -->
+
+<div class="profile-overlay"
+     id="profileView">
+
+
+    <div class="profile-modal-card">
+
+
+        <!-- PROFILE MODAL HEADER -->
+
+        <div class="profile-modal-top">
+
+
+            <div>
+
+                <p class="page-label">
+                    STUDENT PROFILE
+                </p>
+
+
+                <h2>
+                    My Profile
+                </h2>
+
+
+                <p class="profile-modal-subtitle">
+                    View and manage your personal information
+                </p>
+
+            </div>
+
+
+
+            <div class="profile-modal-actions">
+
+
+                <button type="button"
+                        class="profile-edit-top-btn"
+                        onclick="openEditModalFromProfile()">
+
+                    ✏️ Edit Profile
+
+                </button>
+
+
+                <button type="button"
+                        class="profile-close-btn"
+                        onclick="hideProfile()">
+
+                    ✕
+                </button>
+
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- PROFILE CONTENT -->
+
+        <div class="profile-modal-body">
+
+
+            <!-- PROFILE HERO -->
+
+            <div class="profile-hero">
+
+
+                <div class="profile-hero-photo">
+
+                    <img id="profilePhoto"
+                         src="images/default-user.png"
+                         alt="Profile Photo">
+
+                </div>
+
+
+                <div class="profile-hero-info">
+
+                    <p>
+                        STUDENT ACCOUNT
+                    </p>
+
+
+                    <h2 id="profileName">
+                        Student
+                    </h2>
+
+
+                    <span class="profile-active-badge">
+                        <i></i>
+                        Active Account
+                    </span>
+
+                </div>
+
+
+                <button type="button"
+                        class="profile-upload-mini"
+                        onclick="uploadPhoto()">
+
+                    📷
+                    Change Photo
+
+                </button>
+
+
+            </div>
+
+
+
+            <!-- PROFILE DETAILS -->
+
+            <div class="profile-details professional-profile-details">
+
+
+                <div class="detail-box">
+
+                    <span class="detail-icon">
+                        👤
+                    </span>
+
+
+                    <div>
+
+                        <small>
+                            Full Name
+                        </small>
+
+
+                        <strong id="name"></strong>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <div class="detail-box">
+
+                    <span class="detail-icon">
+                        ✉️
+                    </span>
+
+
+                    <div>
+
+                        <small>
+                            Email Address
+                        </small>
+
+
+                        <strong id="email"></strong>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <div class="detail-box">
+
+                    <span class="detail-icon">
+                        📱
+                    </span>
+
+
+                    <div>
+
+                        <small>
+                            Phone Number
+                        </small>
+
+
+                        <strong id="phone"></strong>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <div class="detail-box">
+
+                    <span class="detail-icon">
+                        🎓
+                    </span>
+
+
+                    <div>
+
+                        <small>
+                            Course
+                        </small>
+
+
+                        <strong id="course"></strong>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <div class="detail-box">
+
+                    <span class="detail-icon">
+                        🏢
+                    </span>
+
+
+                    <div>
+
+                        <small>
+                            Department
+                        </small>
+
+
+                        <strong id="department"></strong>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <div class="detail-box">
+
+                    <span class="detail-icon">
+                        🌆
+                    </span>
+
+
+                    <div>
+
+                        <small>
+                            City
+                        </small>
+
+
+                        <strong id="city"></strong>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <div class="detail-box full-width">
+
+                    <span class="detail-icon">
+                        📍
+                    </span>
+
+
+                    <div>
+
+                        <small>
+                            Address
+                        </small>
+
+
+                        <strong id="address"></strong>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- PROFILE FOOTER -->
+
+        <div class="profile-modal-footer">
+
+
+            <span>
+                Student Management System
+            </span>
+
+
+            <button type="button"
+                    onclick="hideProfile()">
+
+                Close Profile
+
+            </button>
+
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+
+<!-- =========================================
+     EDIT PROFILE MODAL
+========================================== -->
+
+<div class="modal"
+     id="editModal">
+
+
+    <div class="modal-content">
+
+
+        <div class="modal-header">
+
+            <h2>
+                Edit Profile
+            </h2>
+
+
+            <span class="close"
+                  onclick="closeEditModal()">
+
+                &times;
+
+            </span>
+
+
+        </div>
+
+
+
+        <div class="modal-body">
+
+
+            <input type="text"
+                   id="editName"
+                   placeholder="Full Name">
+
+
+            <input type="number"
+                   id="editAge"
+                   placeholder="Age">
+
+
+            <input type="text"
+                   id="editCourse"
+                   placeholder="Course">
+
+
+            <input type="text"
+                   id="editDepartment"
+                   placeholder="Department">
+
+
+            <input type="text"
+                   id="editCity"
+                   placeholder="City">
+
+
+            <input type="text"
+                   id="editPhone"
+                   placeholder="Phone Number">
+
+
+            <textarea id="editAddress"
+                      placeholder="Address"></textarea>
+
+
+        </div>
+
+
+
+        <div class="modal-footer">
+
+
+            <button type="button"
+                    class="cancel-btn"
+                    onclick="closeEditModal()">
+
+                Cancel
+
+            </button>
+
+
+            <button type="button"
+                    class="save-btn"
+                    onclick="saveProfile()">
+
+                Save Changes
+
+            </button>
+
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+
+<!-- PHOTO INPUT -->
+
+<input type="file"
+       id="photoInput"
+       accept="image/*"
+       style="display:none;">
+
+
+
+<script src="js/student-dashboard.js"></script>
+
+
+</body>
+
+</html>

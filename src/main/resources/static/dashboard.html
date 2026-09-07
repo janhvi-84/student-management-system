@@ -1,0 +1,1244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Student Management Dashboard</title>
+
+    <link rel="stylesheet"
+          href="css/dashboard.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- ========================================
+         SIDEBAR
+    ========================================= -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            <h2>SMS</h2>
+
+            <p>Admin Panel</p>
+
+        </div>
+
+
+        <ul>
+
+
+            <!-- ========================================
+                 1. HOME PAGE
+            ========================================= -->
+
+            <li>
+
+                <a href="home.html">
+
+                    🏠 Home Page
+
+                </a>
+
+            </li>
+
+
+            <!-- ========================================
+                 2. DASHBOARD
+            ========================================= -->
+
+            <li class="active"
+                id="dashboardMenu">
+
+                📊 Dashboard
+
+            </li>
+
+
+            <!-- ========================================
+                 3. STUDENTS
+            ========================================= -->
+
+            <li id="studentMenu">
+
+                🎓 Students
+
+            </li>
+
+
+            <!-- ========================================
+                 4. ADD STUDENT
+            ========================================= -->
+
+            <li onclick="addStudent()">
+
+                ➕ Add Student
+
+            </li>
+
+
+            <!-- ========================================
+                 5. ADMIN MANAGEMENT
+            ========================================= -->
+
+            <li>
+
+                <a href="admin-management.html">
+
+                    👨‍💼 Admin Management
+
+                </a>
+
+            </li>
+
+
+            <!-- ========================================
+                 6. MY PROFILE
+            ========================================= -->
+
+            <li onclick="showAdminProfile()">
+
+                👤 My Profile
+
+            </li>
+
+
+            <!-- ========================================
+                 7. CHANGE PASSWORD
+            ========================================= -->
+
+            <li onclick="showAdminChangePassword()">
+
+                🔑 Change Password
+
+            </li>
+
+
+            <!-- ========================================
+                 8. UPLOAD PHOTO
+            ========================================= -->
+
+            <li onclick="uploadAdminPhoto()">
+
+                📷 Upload Photo
+
+            </li>
+
+
+            <!-- ========================================
+                 9. ACTIVITY LOGS
+            ========================================= -->
+
+            <li onclick="showAuditLogs()">
+
+                📋 Activity Logs
+
+            </li>
+
+
+            <!-- ========================================
+                 10. RECYCLE BIN
+            ========================================= -->
+
+            <li onclick="showRecycleBin()">
+
+                🗑 Recycle Bin
+
+            </li>
+
+
+            <!-- ========================================
+                 11. LOGOUT
+            ========================================= -->
+
+            <li onclick="logout()">
+
+                🚪 Logout
+
+            </li>
+
+
+        </ul>
+
+    </aside>
+
+
+    <!-- ========================================
+         MAIN CONTENT
+    ========================================= -->
+
+    <main class="main-content">
+
+
+        <!-- ========================================
+             HEADER
+        ========================================= -->
+
+        <header class="admin-header">
+
+            <div>
+
+                <div class="title-scroll">
+
+                    <h1>
+                        🎓 Student Management System
+                    </h1>
+
+                </div>
+
+                <p>
+
+                    Welcome back,
+
+                    <span id="adminName">
+                        Admin
+                    </span>
+
+                    👋
+
+                </p>
+
+            </div>
+
+
+            <div class="admin-actions">
+
+                <button class="header-btn"
+                        onclick="showAdminProfile()">
+
+                    👤 My Profile
+
+                </button>
+
+
+                <button class="header-btn"
+                        onclick="showAdminChangePassword()">
+
+                    🔑 Change Password
+
+                </button>
+
+
+            </div>
+
+        </header>
+
+
+        <!-- ========================================
+             DASHBOARD SECTION
+        ========================================= -->
+
+        <section id="dashboardSection">
+
+
+            <!-- ========================================
+                 CARDS
+            ========================================= -->
+
+            <section class="cards">
+
+
+                <!-- TOTAL STUDENTS -->
+
+                <div class="card total"
+                     id="totalCard">
+
+                    <div class="icon">
+
+                        👨‍🎓
+
+                    </div>
+
+
+                    <div>
+
+                        <h3>
+
+                            Total Students
+
+                        </h3>
+
+
+                        <h2 id="totalStudents">
+
+                            0
+
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ACTIVE STUDENTS -->
+
+                <div class="card active-card"
+                     id="activeCard">
+
+                    <div class="icon">
+
+                        ✅
+
+                    </div>
+
+
+                    <div>
+
+                        <h3>
+
+                            Active Students
+
+                        </h3>
+
+
+                        <h2 id="activeStudents">
+
+                            0
+
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <!-- RECENT STUDENTS -->
+
+                <div class="card recent"
+                     id="recentCard">
+
+                    <div class="icon">
+
+                        🆕
+
+                    </div>
+
+
+                    <div>
+
+                        <h3>
+
+                            Recently Added
+
+                        </h3>
+
+
+                        <h2 id="recentStudents">
+
+                            0
+
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+            </section>
+
+
+            <!-- ========================================
+                 DASHBOARD GRID
+            ========================================= -->
+
+            <div class="dashboard-grid">
+
+
+                <!-- ========================================
+                     CHART
+                ========================================= -->
+
+                <div class="chart-box">
+
+                    <div class="box-header">
+
+                        <h3>
+
+                            📊 Student Statistics
+
+                        </h3>
+
+                    </div>
+
+
+                    <canvas id="studentChart"></canvas>
+
+                </div>
+
+
+                <!-- ========================================
+                     QUICK ACTIONS
+                ========================================= -->
+
+                <div class="quick-box">
+
+                    <div class="box-header">
+
+                        <h3>
+
+                            ⚡ Quick Actions
+
+                        </h3>
+
+                    </div>
+
+
+                    <button id="quickAdd">
+
+                        ➕ Add Student
+
+                    </button>
+
+
+                    <button id="quickView">
+
+                        👨‍🎓 View Students
+
+                    </button>
+
+
+                    <button id="quickRefresh">
+
+                        🔄 Refresh Dashboard
+
+                    </button>
+
+
+                    <button id="quickAdmin">
+
+                        👨‍💼 Manage Admins
+
+                    </button>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+        <!-- ========================================
+             ADMIN PROFILE
+        ========================================= -->
+
+        <section id="adminProfileSection"
+                 style="display:none;">
+
+
+            <div class="student-header">
+
+                <h2>
+
+                    👤 My Profile
+
+                </h2>
+
+
+                <button class="back-btn"
+                        onclick="hideAdminProfile()">
+
+                    ← Back
+
+                </button>
+
+
+            </div>
+
+
+            <div class="profile-card">
+
+
+                <div class="profile-header">
+
+
+                    <div class="profile-avatar">
+
+                        <img id="adminProfilePhoto"
+                             src="images/default-user.png"
+                             class="profile-photo"
+                             alt="Admin">
+
+                    </div>
+
+
+                    <div>
+
+                        <h2 id="adminProfileName">
+
+                            Admin
+
+                        </h2>
+
+
+                        <p>
+
+                            Administrator
+
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="profile-details">
+
+
+                    <div class="detail-box">
+
+                        <small>
+
+                            Name
+
+                        </small>
+
+
+                        <strong id="adminNameView">
+
+                            -
+
+                        </strong>
+
+                    </div>
+
+
+                    <div class="detail-box">
+
+                        <small>
+
+                            Email
+
+                        </small>
+
+
+                        <strong id="adminEmailView">
+
+                            -
+
+                        </strong>
+
+                    </div>
+
+
+                    <div class="detail-box">
+
+                        <small>
+
+                            Phone
+
+                        </small>
+
+
+                        <strong id="adminPhoneView">
+
+                            -
+
+                        </strong>
+
+                    </div>
+
+
+                    <div class="detail-box full-width">
+
+                        <small>
+
+                            Address
+
+                        </small>
+
+
+                        <strong id="adminAddressView">
+
+                            -
+
+                        </strong>
+
+                    </div>
+
+
+                </div>
+
+
+                <br>
+
+
+                <button class="save-btn"
+                        onclick="openAdminEditModal()">
+
+                    ✏ Edit Profile
+
+                </button>
+
+
+            </div>
+
+
+        </section>
+
+
+        <!-- ========================================
+             ADMIN CHANGE PASSWORD
+        ========================================= -->
+
+        <section id="adminChangePasswordSection"
+                 style="display:none;">
+
+
+            <div class="student-header">
+
+                <h2>
+
+                    🔑 Change Password
+
+                </h2>
+
+
+                <button class="back-btn"
+                        onclick="hideAdminChangePassword()">
+
+                    ← Back
+
+                </button>
+
+
+            </div>
+
+
+            <div class="profile-card">
+
+
+                <div class="profile-details">
+
+
+                    <div class="detail-box full-width">
+
+                        <small>
+
+                            Current Password
+
+                        </small>
+
+
+                        <input type="password"
+                               id="currentAdminPassword"
+                               placeholder="Current Password">
+
+                    </div>
+
+
+                    <div class="detail-box full-width">
+
+                        <small>
+
+                            New Password
+
+                        </small>
+
+
+                        <input type="password"
+                               id="newAdminPassword"
+                               placeholder="New Password">
+
+                    </div>
+
+
+                    <div class="detail-box full-width">
+
+                        <small>
+
+                            Confirm Password
+
+                        </small>
+
+
+                        <input type="password"
+                               id="confirmAdminPassword"
+                               placeholder="Confirm Password">
+
+                    </div>
+
+
+                </div>
+
+
+                <br>
+
+
+                <button class="save-btn"
+                        onclick="changeAdminPassword()">
+
+                    🔑 Change Password
+
+                </button>
+
+
+            </div>
+
+
+        </section>
+
+
+        <!-- ========================================
+             STUDENTS SECTION
+        ========================================= -->
+
+        <section id="studentsSection"
+                 style="display: none;">
+
+
+            <div class="student-header">
+
+                <h2>
+
+                    👨‍🎓 Student Records
+
+                </h2>
+
+            </div>
+
+
+            <!-- TOOLBAR -->
+
+            <section class="toolbar">
+
+
+                <input type="text"
+                       id="search"
+                       placeholder="Search Student by Name...">
+
+
+                <button id="searchBtn">
+
+                    🔍 Search
+
+                </button>
+
+
+                <select id="statusFilter">
+
+                    <option value="">
+
+                        All Status
+
+                    </option>
+
+
+                    <option value="ACTIVE">
+
+                        Active
+
+                    </option>
+
+
+                    <option value="INACTIVE">
+
+                        Inactive
+
+                    </option>
+
+
+                </select>
+
+
+                <select id="sortOption">
+
+                    <option value="">
+
+                        Sort By
+
+                    </option>
+
+
+                    <option value="asc">
+
+                        Name (A-Z)
+
+                    </option>
+
+
+                    <option value="desc">
+
+                        Name (Z-A)
+
+                    </option>
+
+
+                    <option value="created">
+
+                        Recently Added
+
+                    </option>
+
+
+                </select>
+
+
+                <button id="addStudent">
+
+                    ➕ Add Student
+
+                </button>
+
+
+            </section>
+
+
+            <!-- TABLE -->
+
+            <section class="table-container">
+
+
+                <table>
+
+
+                    <thead>
+
+                        <tr>
+
+                            <th>ID</th>
+
+                            <th>Name</th>
+
+                            <th>Age</th>
+
+                            <th>Course</th>
+
+                            <th>Email</th>
+
+                            <th>Department</th>
+
+                            <th>City</th>
+
+                            <th>Action</th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="studentTable">
+
+                    </tbody>
+
+
+                </table>
+
+
+                <!-- PAGINATION -->
+
+                <div class="pagination">
+
+
+                    <button id="prevPage">
+
+                        ◀ Previous
+
+                    </button>
+
+
+                    <span id="pageNumber">
+
+                        Page 1
+
+                    </span>
+
+
+                    <button id="nextPage">
+
+                        Next ▶
+
+                    </button>
+
+
+                </div>
+
+
+            </section>
+
+
+        </section>
+
+
+        <!-- ========================================
+             AUDIT LOGS SECTION
+        ========================================= -->
+
+        <section id="auditLogsSection"
+                 style="display:none;">
+
+
+            <div class="student-header">
+
+
+                <h2>
+
+                    📋 Audit Logs
+
+                </h2>
+
+
+                <button class="back-btn"
+                        onclick="hideAuditLogs()">
+
+                    ← Back
+
+                </button>
+
+
+            </div>
+
+
+            <!-- AUDIT TOOLBAR -->
+
+            <section class="toolbar">
+
+
+                <input type="text"
+                       id="auditSearch"
+                       placeholder="Search by email or action...">
+
+
+                <select id="auditActionFilter">
+
+
+                    <option value="">
+
+                        All Actions
+
+                    </option>
+
+
+                    <option value="LOGIN">
+
+                        LOGIN
+
+                    </option>
+
+
+                    <option value="LOGOUT">
+
+                        LOGOUT
+
+                    </option>
+
+
+                    <option value="CREATE">
+
+                        CREATE
+
+                    </option>
+
+
+                    <option value="UPDATE">
+
+                        UPDATE
+
+                    </option>
+
+
+                    <option value="DELETE">
+
+                        DELETE
+
+                    </option>
+
+
+                    <option value="PASSWORD_CHANGE">
+
+                        PASSWORD CHANGE
+
+                    </option>
+
+
+                    <option value="REGISTRATION">
+
+                        REGISTRATION
+
+                    </option>
+
+
+                    <option value="RESTORE">
+
+                        RESTORE
+
+                    </option>
+
+
+                </select>
+
+
+                <select id="auditRoleFilter">
+
+
+                    <option value="">
+
+                        All Roles
+
+                    </option>
+
+
+                    <option value="ADMIN">
+
+                        ADMIN
+
+                    </option>
+
+
+                    <option value="STUDENT">
+
+                        STUDENT
+
+                    </option>
+
+
+                </select>
+
+
+                <button onclick="loadAuditLogs()">
+
+                    🔄 Refresh
+
+                </button>
+
+
+            </section>
+
+
+            <!-- AUDIT TABLE -->
+
+            <section class="table-container">
+
+
+                <table>
+
+
+                    <thead>
+
+                        <tr>
+
+                            <th>ID</th>
+
+                            <th>Date & Time</th>
+
+                            <th>Performed By</th>
+
+                            <th>Role</th>
+
+                            <th>Action</th>
+
+                            <th>Module</th>
+
+                            <th>Description</th>
+
+                            <th>Target</th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="auditTable">
+
+                    </tbody>
+
+
+                </table>
+
+
+            </section>
+
+
+        </section>
+
+
+        <!-- ========================================
+             RECYCLE BIN
+        ========================================= -->
+
+        <section id="recycleBinSection"
+                 style="display:none;">
+
+
+            <div class="student-header">
+
+
+                <h2>
+
+                    🗑 Recycle Bin
+
+                </h2>
+
+
+                <button class="back-btn"
+                        onclick="hideRecycleBin()">
+
+                    ← Back
+
+                </button>
+
+
+            </div>
+
+
+            <section class="table-container">
+
+
+                <table>
+
+
+                    <thead>
+
+
+                        <tr>
+
+                            <th>ID</th>
+
+                            <th>Name</th>
+
+                            <th>Course</th>
+
+                            <th>Department</th>
+
+                            <th>Action</th>
+
+                        </tr>
+
+
+                    </thead>
+
+
+                    <tbody id="recycleTable">
+
+                    </tbody>
+
+
+                </table>
+
+
+            </section>
+
+
+        </section>
+
+
+        <!-- ========================================
+             EDIT ADMIN PROFILE MODAL
+        ========================================= -->
+
+        <div class="modal"
+             id="adminEditModal">
+
+
+            <div class="modal-content">
+
+
+                <div class="modal-header">
+
+
+                    <h2>
+
+                        Edit Admin Profile
+
+                    </h2>
+
+
+                    <span class="close"
+                          onclick="closeAdminEditModal()">
+
+                        &times;
+
+                    </span>
+
+
+                </div>
+
+
+                <div class="modal-body">
+
+
+                    <input type="text"
+                           id="editAdminName"
+                           placeholder="Full Name">
+
+
+                    <input type="text"
+                           id="editAdminPhone"
+                           placeholder="Phone Number">
+
+
+                    <textarea id="editAdminAddress"
+                              placeholder="Address"></textarea>
+
+
+                </div>
+
+
+                <div class="modal-footer">
+
+
+                    <button class="cancel-btn"
+                            onclick="closeAdminEditModal()">
+
+                        Cancel
+
+                    </button>
+
+
+                    <button class="save-btn"
+                            onclick="saveAdminProfile()">
+
+                        Save Changes
+
+                    </button>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </main>
+
+
+</div>
+
+
+<!-- ========================================
+     ADMIN PHOTO INPUT
+======================================== -->
+
+<input type="file"
+       id="adminPhotoInput"
+       accept="image/*"
+       style="display:none;">
+
+
+<!-- ========================================
+     JAVASCRIPT
+======================================== -->
+
+<script src="js/dashboard.js"></script>
+
+
+</body>
+
+</html>
